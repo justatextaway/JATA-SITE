@@ -1,0 +1,23 @@
+{
+  "name": "jata-site",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arya-codess/JATA-SITE.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arya-codess/JATA-SITE/issues"
+  },
+  "homepage": "https://github.com/arya-codess/JATA-SITE#readme",
+  "description": "",
+  "dependencies": {
+    "nodemailer": "^7.0.5"
+  }
+}

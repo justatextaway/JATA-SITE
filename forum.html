@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reviews & Suggestions | Just a Text Away</title>
+    <link rel="icon" type="image/png" href="pics/logo.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">Just a Text Away</div>
+      <div class="hamburger" id="hamburger">☰</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html"><i class="fas fa-house"></i> Home</a></li>
+        <li><a href="team.html"><i class="fas fa-users"></i> Team</a></li>
+        <li><a href="updates-and-blogs.html"><i class="fas fa-newspaper"></i> Blogs & Updates</a></li>
+        <li><a href="forum.html"><i class="fas fa-comments"></i> Forum</a></li>
+      </ul>
+    </nav>
+    <section class="forum-section section">
+      <h2 class="section-title">Reviews & Suggestions</h2>
+      <p class="forum-intro">We’d love to hear from you! All submissions go to our admin team for review. Only selected feedback will be featured publicly.</p>
+      <form id="feedbackForm" class="forum-form">
+        <div class="form-group">
+          <label for="name">Your Name (optional):</label>
+          <input type="text" id="name" name="name" maxlength="80" />
+        </div>
+        <div class="form-group">
+          <label for="message">Your Feedback or Suggestion:</label>
+          <textarea id="message" name="message" rows="5" required placeholder="Type your review, feedback, or suggestion here..."></textarea>
+        </div>
+        <button type="submit" class="btn primary-btn">Submit</button>
+        <span id="feedbackStatus" style="margin-left:12px;color:#A17258"></span>
+      </form>
+    </section>
+    <footer class="footer">
+      <div class="footer-content">
+        <p class="footer-logo">Just a Text Away</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/justatextaway_/" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="mailto:justatextaway.org@gmail.com" target="_blank" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a href="https://linktr.ee/justatextaway" target="_blank" aria-label="Linktree">
+            <i class="fas fa-link"></i>
+          </a>
+          <a href="https://docs.google.com/document/d/1XZzx-cHR1H7qv8rmpqAziEYGhztdcWEfgGv-ePSFQ4A/edit?usp=sharing" target="_blank" aria-label="terms & conditions">
+            <i class="fas fa-file-alt"></i>
+          </a>
+        </div>
+        <p class="footer-text">© 2025 Just a Text Away • By teens, for teens.</p>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
