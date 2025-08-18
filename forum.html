@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body class="forum-page">
     <nav class="navbar">
       <div class="logo">Just a Text Away</div>
       <div class="hamburger" id="hamburger">☰</div>
@@ -19,42 +19,62 @@
         <li><a href="forum.html"><i class="fas fa-comments"></i> Forum</a></li>
       </ul>
     </nav>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
     <section class="forum-section section">
       <h2 class="section-title">Reviews & Suggestions</h2>
-      <p class="forum-intro">We’d love to hear from you! All submissions go to our admin team for review. Only selected feedback will be featured publicly.</p>
-      <form id="feedbackForm" class="forum-form">
+      <p class="forum-intro">
+        We’d love to hear from you! All submissions go to our admin team for review. Only selected feedback will be featured publicly.
+      </p>
+      <form class="forum-form" id="feedbackForm">
         <div class="form-group">
-          <label for="name">Your Name (optional):</label>
-          <input type="text" id="name" name="name" maxlength="80" />
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" required placeholder="Enter your name">
         </div>
         <div class="form-group">
-          <label for="message">Your Feedback or Suggestion:</label>
-          <textarea id="message" name="message" rows="5" required placeholder="Type your review, feedback, or suggestion here..."></textarea>
+          <label for="message">Your Feedback</label>
+          <textarea id="message" name="message" rows="5" required placeholder="Share your thoughts..."></textarea>
         </div>
-        <button type="submit" class="btn primary-btn">Submit</button>
-        <span id="feedbackStatus" style="margin-left:12px;color:#A17258"></span>
+        <button type="submit"><i class="fas fa-paper-plane"></i> Submit</button>
+        <div id="feedbackStatus" style="margin-top:10px;color:#A17258;"></div>
       </form>
     </section>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" title="Back to top"><i class="fas fa-arrow-up"></i></button>
+
     <footer class="footer">
       <div class="footer-content">
         <p class="footer-logo">Just a Text Away</p>
         <div class="footer-socials">
-          <a href="https://www.instagram.com/justatextaway_/" target="_blank" aria-label="Instagram">
+          <a href="https://www.instagram.com/justatextaway_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <i class="fab fa-instagram"></i>
           </a>
-          <a href="mailto:justatextaway.org@gmail.com" target="_blank" aria-label="Email">
+          <a href="mailto:justatextaway.org@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email">
             <i class="fas fa-envelope"></i>
           </a>
-          <a href="https://linktr.ee/justatextaway" target="_blank" aria-label="Linktree">
+          <a href="https://linktr.ee/justatextaway" target="_blank" rel="noopener noreferrer" aria-label="Linktree">
             <i class="fas fa-link"></i>
           </a>
-          <a href="https://docs.google.com/document/d/1XZzx-cHR1H7qv8rmpqAziEYGhztdcWEfgGv-ePSFQ4A/edit?usp=sharing" target="_blank" aria-label="terms & conditions">
+          <a href="https://docs.google.com/document/d/1XZzx-cHR1H7qv8rmpqAziEYGhztdcWEfgGv-ePSFQ4A/edit?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="terms & conditions">
             <i class="fas fa-file-alt"></i>
           </a>
         </div>
         <p class="footer-text">© 2025 Just a Text Away • By teens, for teens.</p>
       </div>
     </footer>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
+    <script>
+      // Back to top button functionality
+      const backToTop = document.getElementById('backToTop');
+      window.addEventListener('scroll', () => {
+        backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+      });
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    </script>
   </body>
 </html>
