@@ -534,23 +534,15 @@ a {
 .team-member p {
   font-size: 0.95rem;
   color: #A17258;
+  margin-bottom: 0;
 }
 
-.updates-container, .blogs-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
-}
-
-.update-card, .blog-card {
-  background: rgba(255, 248, 240, 0.7);
-  border: 1.5px solid #6E2E2E;
-  border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.07);
-  padding: 24px 20px;
-  width: 320px;
-  margin-bottom: 16px;
+/* Section title styling */
+.section-title {
+  font-size: 2.3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 48px;
   color: #6E2E2E;
   transition: transform 0.6s ease, opacity 0.6s ease;
   opacity: 0;
@@ -637,5 +629,166 @@ a {
   .forum-section {
     padding: 8vw 3vw;
     max-width: 98vw;
+  }
+}
+
+/* --- TEAM PAGE ENHANCEMENTS (SCOPED) --- */
+
+/* Gradient background only for team page */
+body.team-page {
+  background: linear-gradient(135deg, #F5F0E6 0%, #F3DCDC 100%);
+}
+
+/* Team hero section */
+body.team-page .team-hero {
+  min-height: 320px;
+  position: relative;
+  background: none;
+  margin-bottom: 0;
+}
+body.team-page .team-hero .hero-bg {
+  background: url('pics/biege-pastel-bg.jpg'), linear-gradient(135deg, #F5F0E6 0%, #F3DCDC 100%);
+  opacity: 0.7;
+  filter: blur(8px) brightness(0.95);
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+}
+body.team-page .team-hero .hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 80px 20px 40px 20px;
+}
+body.team-page .team-hero .hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #6E2E2E;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 8px rgba(110,46,46,0.08);
+}
+body.team-page .team-hero .hero-subtitle {
+  font-size: 1.3rem;
+  color: #A17258;
+  margin-bottom: 0;
+}
+
+/* Section divider for team page */
+body.team-page .section-divider {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #F3DCDC, #A17258, #F3DCDC);
+  margin: 0 auto 40px auto;
+  opacity: 0.5;
+}
+
+/* Team member cards */
+body.team-page .team-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+  padding-bottom: 40px;
+}
+body.team-page .team-member {
+  background: rgba(255, 248, 240, 0.7);
+  backdrop-filter: blur(8px);
+  border-radius: 18px;
+  box-shadow: 0 6px 24px rgba(110,46,46,0.08);
+  padding: 32px 12px 24px 12px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  opacity: 0;
+  transform: translateY(30px);
+  border: 1.5px solid #F3DCDC;
+}
+body.team-page .team-member.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+body.team-page .team-member:hover {
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 12px 32px rgba(110,46,46,0.14);
+}
+body.team-page .team-member img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #A17258;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(110,46,46,0.10);
+}
+body.team-page .team-member h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #6E2E2E;
+  letter-spacing: 0.5px;
+}
+body.team-page .team-member p {
+  font-size: 1rem;
+  color: #A17258;
+  margin-bottom: 0;
+}
+
+/* Section title styling for team page */
+body.team-page .team .section-title {
+  font-size: 2.3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 48px;
+  color: #6E2E2E;
+  letter-spacing: 1px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: titleFade 0.6s ease forwards;
+  animation-delay: 0.1s;
+}
+
+/* Back to top button for team page */
+body.team-page #backToTop {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  background: #A17258;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 16px rgba(110,46,46,0.12);
+  cursor: pointer;
+  display: none;
+  z-index: 9999;
+  transition: background 0.3s, transform 0.3s;
+}
+body.team-page #backToTop:hover {
+  background: #6E2E2E;
+  transform: scale(1.08);
+}
+
+/* Responsive adjustments for team page */
+@media (max-width: 900px) {
+  body.team-page .team-container {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 24px;
+  }
+  body.team-page .team-member img {
+    width: 90px;
+    height: 90px;
+  }
+  body.team-page .team-member {
+    padding: 20px 6px 16px 6px;
+  }
+  body.team-page .team .section-title {
+    font-size: 1.6rem;
+  }
+  body.team-page .team-hero .hero-title {
+    font-size: 2rem;
   }
 }
