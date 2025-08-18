@@ -287,13 +287,11 @@ a {
   transform: translateY(30px);
 }
 
-/* Animation trigger */
 .step.animate {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Stagger delay */
 .step.animate:nth-child(1) { transition-delay: 0.2s; }
 .step.animate:nth-child(2) { transition-delay: 0.4s; }
 .step.animate:nth-child(3) { transition-delay: 0.6s; }
@@ -315,7 +313,6 @@ a {
 }
 
 /* what makes us different*/
-
 .difference {
   text-align: center;
 }
@@ -364,7 +361,6 @@ a {
   font-size: 0.95rem;
 }
 
-/* Animation */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -376,20 +372,17 @@ a {
   }
 }
 
-/* Apply animation */
 .diff-card {
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.6s ease;
 }
 
-/* Only animate when this class is added */
 .diff-card.animate {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Optional: stagger the effect */
 .diff-card.animate:nth-child(1) {
   transition-delay: 0.2s;
 }
@@ -404,7 +397,6 @@ a {
 }
 
 /*CTA*/
-
 .cta-join {
   background-color: #F3DCDC; /* soft maroon-ish pink */
   text-align: center;
@@ -450,7 +442,6 @@ a {
 }
 
 /*footer*/
-
 .footer {
   background-color: #F5F0E6;
   padding: 40px 20px;
@@ -503,8 +494,6 @@ a {
     animation: none;
   }
 }
-
-
 
 .team-container {
   display: flex;

@@ -2,19 +2,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.getElementById("navLinks");
   const hamburger = document.getElementById("hamburger");
 
-  // 🍔 Toggle nav on hamburger click
+  // Toggle nav on hamburger click
   hamburger.addEventListener("click", () => {
     navLinks.classList.toggle("show");
   });
  
-  // ❌ Close nav on link click
+  // Close nav on link click
   document.querySelectorAll(".nav-links a").forEach(link => {
     link.addEventListener("click", () => {
       navLinks.classList.remove("show");
     });
   });
  
-  // 🧩 Animate difference cards on scroll
+  // Animate difference cards on scroll
   const diffCards = document.querySelectorAll(".diff-card");
 
   const observer = new IntersectionObserver(entries => {
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   diffCards.forEach(card => observer.observe(card));
 
-  // 🔄 Animate how-we-work steps on scroll
+  // Animate how-we-work steps on scroll
   const steps = document.querySelectorAll(".step");
 
   const stepObserver = new IntersectionObserver(entries => {
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   steps.forEach(step => stepObserver.observe(step));
 
-  // 🎯 Animate CTA section
+  // Animate CTA section
   const ctaSection = document.querySelector(".cta-join");
 
   const ctaObserver = new IntersectionObserver(entries => {
@@ -56,8 +56,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (ctaSection) ctaObserver.observe(ctaSection);
 });
-
-
 
 const teamMembers = document.querySelectorAll(".team-member");
 
@@ -73,19 +71,18 @@ const teamObserver = new IntersectionObserver(entries => {
 teamMembers.forEach(member => teamObserver.observe(member));
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Select all update and blog cards
   const cards = document.querySelectorAll('.update-card, .blog-card');
 
   // Create an Intersection Observer for fade-in effect
   const cardObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('animate'); // Add class to start CSS transition
-        observer.unobserve(entry.target);      // Stop observing once visible
+        entry.target.classList.add('animate'); 
+        observer.unobserve(entry.target);      
       }
     });
   }, {
-    threshold: 0.2  // Trigger when 20% of the card is visible
+    threshold: 0.2 
   });
 
   // Observe each card
