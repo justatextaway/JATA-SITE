@@ -3,15 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Share your feedback, reviews, and suggestions with Just a Text Away. Help us improve our teen support platform." />
+    <meta name="keywords" content="feedback, reviews, suggestions, teen support, contact, Just a Text Away" />
+    <meta name="author" content="Just a Text Away Team" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://justatextaway.org/forum" />
+    <meta property="og:title" content="Reviews & Suggestions | Just a Text Away" />
+    <meta property="og:description" content="Share your feedback, reviews, and suggestions with Just a Text Away." />
+    <meta property="og:image" content="pics/logo.png" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://justatextaway.org/forum" />
+    <meta property="twitter:title" content="Reviews & Suggestions | Just a Text Away" />
+    <meta property="twitter:description" content="Share your feedback, reviews, and suggestions with Just a Text Away." />
+    <meta property="twitter:image" content="pics/logo.png" />
+    
     <title>Reviews & Suggestions | Just a Text Away</title>
     <link rel="icon" type="image/png" href="pics/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <nav class="navbar">
       <div class="logo">Just a Text Away</div>
-      <div class="hamburger" id="hamburger">☰</div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">☰</button>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html"><i class="fas fa-house"></i> Home</a></li>
         <li><a href="team.html"><i class="fas fa-users"></i> Team</a></li>
@@ -22,33 +43,51 @@
     <section class="forum-section section">
       <h2 class="section-title">Reviews & Suggestions</h2>
       <p class="forum-intro">We’d love to hear from you! All submissions go to our admin team for review. Only selected feedback will be featured publicly.</p>
-      <form id="feedbackForm" class="forum-form">
+      <form id="feedbackForm" class="forum-form" novalidate>
         <div class="form-group">
           <label for="name">Your Name (optional):</label>
-          <input type="text" id="name" name="name" maxlength="80" />
+          <input 
+            type="text" 
+            id="name" 
+            name="name" 
+            maxlength="80" 
+            aria-describedby="nameHelp"
+            placeholder="Enter your name if you'd like us to know who you are" />
+          <small id="nameHelp" class="form-help">This field is optional. You can remain anonymous if you prefer.</small>
         </div>
         <div class="form-group">
-          <label for="message">Your Feedback or Suggestion:</label>
-          <textarea id="message" name="message" rows="5" required placeholder="Type your review, feedback, or suggestion here..."></textarea>
+          <label for="message">Your Feedback or Suggestion: <span class="required" aria-label="required">*</span></label>
+          <textarea 
+            id="message" 
+            name="message" 
+            rows="5" 
+            required 
+            maxlength="1000"
+            aria-describedby="messageHelp"
+            placeholder="Type your review, feedback, or suggestion here..."></textarea>
+          <small id="messageHelp" class="form-help">Maximum 1000 characters. This field is required.</small>
         </div>
-        <button type="submit" class="btn primary-btn">Submit</button>
-        <span id="feedbackStatus" style="margin-left:12px;color:#A17258"></span>
+        <button type="submit" class="btn primary-btn">
+          <i class="fas fa-paper-plane"></i>
+          Submit Feedback
+        </button>
+        <div id="feedbackStatus" role="status" aria-live="polite" class="feedback-status"></div>
       </form>
     </section>
     <footer class="footer">
       <div class="footer-content">
         <p class="footer-logo">Just a Text Away</p>
         <div class="footer-socials">
-          <a href="https://www.instagram.com/justatextaway_/" target="_blank" aria-label="Instagram">
+          <a href="https://www.instagram.com/justatextaway_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <i class="fab fa-instagram"></i>
           </a>
-          <a href="mailto:justatextaway.org@gmail.com" target="_blank" aria-label="Email">
+          <a href="mailto:justatextaway.org@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email">
             <i class="fas fa-envelope"></i>
           </a>
-          <a href="https://linktr.ee/justatextaway" target="_blank" aria-label="Linktree">
+          <a href="https://linktr.ee/justatextaway" target="_blank" rel="noopener noreferrer" aria-label="Linktree">
             <i class="fas fa-link"></i>
           </a>
-          <a href="https://docs.google.com/document/d/1XZzx-cHR1H7qv8rmpqAziEYGhztdcWEfgGv-ePSFQ4A/edit?usp=sharing" target="_blank" aria-label="terms & conditions">
+          <a href="https://docs.google.com/document/d/1XZzx-cHR1H7qv8rmpqAziEYGhztdcWEfgGv-ePSFQ4A/edit?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="terms & conditions">
             <i class="fas fa-file-alt"></i>
           </a>
         </div>

@@ -3,8 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Stay updated with the latest news, blog posts, and updates from Just a Text Away - your teen support platform." />
+    <meta name="keywords" content="blog, updates, news, teen support, peer counseling, Just a Text Away" />
+    <meta name="author" content="Just a Text Away Team" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://justatextaway.org/updates-and-blogs" />
+    <meta property="og:title" content="Blogs & Updates | Just a Text Away" />
+    <meta property="og:description" content="Stay updated with the latest news, blog posts, and updates from Just a Text Away." />
+    <meta property="og:image" content="pics/logo.png" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://justatextaway.org/updates-and-blogs" />
+    <meta property="twitter:title" content="Blogs & Updates | Just a Text Away" />
+    <meta property="twitter:description" content="Stay updated with the latest news, blog posts, and updates from Just a Text Away." />
+    <meta property="twitter:image" content="pics/logo.png" />
+    
     <title>Blogs & Updates | Just a Text Away</title>
     <link rel="icon" type="image/png" href="pics/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -12,7 +33,7 @@
     
     <nav class="navbar">
       <div class="logo">Just a Text Away</div>
-      <div class="hamburger" id="hamburger">☰</div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">☰</button>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html"><i class="fas fa-house"></i> Home</a></li>
         <li><a href="team.html"><i class="fas fa-users"></i> Team</a></li>
@@ -26,9 +47,18 @@
       <h2 class="section-title">Latest Updates</h2>
       <div class="updates-container">
         <div class="update-card">
-          <h3>Heading</h3>
-          <p class="update-date">Date</p>
-          <p>Update content</p>
+          <div class="update-header">
+            <h3>Website Launch</h3>
+            <p class="update-date">January 2025</p>
+          </div>
+          <p>We're excited to announce the launch of our new website! This platform will serve as a central hub for teen support, resources, and community building.</p>
+        </div>
+        <div class="update-card">
+          <div class="update-header">
+            <h3>Team Expansion</h3>
+            <p class="update-date">December 2024</p>
+          </div>
+          <p>Our team has grown to include dedicated members across various departments, all committed to providing the best support possible for teens in need.</p>
         </div>
       </div>
     </section>
@@ -38,10 +68,14 @@
       <h2 class="section-title">Our Blogs</h2>
       <div class="blogs-container">
         <div class="blog-card">
-          <h3>Topic</h3>
-          <p class="blog-author">By Author</p>
-          <p class="blog-excerpt">content</p>
-          <a href="blog1.html" class="read-more">Read More</a>
+          <h3>Mental Health Awareness for Teens</h3>
+          <p class="blog-author">By Just a Text Away Team</p>
+          <p class="blog-excerpt">Understanding the importance of mental health awareness and how teens can support each other through difficult times...</p>
+          <div class="blog-meta">
+            <span class="blog-category">Mental Health</span>
+            <span class="blog-read-time">5 min read</span>
+          </div>
+          <p class="coming-soon">More blog posts coming soon!</p>
         </div>
       </div>
     </section>
@@ -50,16 +84,16 @@
       <div class="footer-content">
         <p class="footer-logo">Just a Text Away</p>
         <div class="footer-socials">
-          <a href="https://www.instagram.com/justatextaway_/" target="_blank" aria-label="Instagram">
+          <a href="https://www.instagram.com/justatextaway_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <i class="fab fa-instagram"></i>
           </a>
-          <a href="mailto:justatextaway.org@gmail.com" target="_blank" aria-label="Email">
+          <a href="mailto:justatextaway.org@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email">
             <i class="fas fa-envelope"></i>
           </a>
-          <a href="https://linktr.ee/justatextaway" target="_blank" aria-label="Linktree">
+          <a href="https://linktr.ee/justatextaway" target="_blank" rel="noopener noreferrer" aria-label="Linktree">
             <i class="fas fa-link"></i>
           </a>
-          <a href="https://docs.google.com/document/d/1XZzx-cHR1H7qv8rmpqAziEYGhztdcWEfgGv-ePSFQ4A/edit?usp=sharing" target="_blank" aria-label="terms & conditions">
+          <a href="https://docs.google.com/document/d/1XZzx-cHR1H7qv8rmpqAziEYGhztdcWEfgGv-ePSFQ4A/edit?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="terms & conditions">
             <i class="fas fa-file-alt"></i>
           </a>
         </div>

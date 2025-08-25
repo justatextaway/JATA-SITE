@@ -1,8 +1,11 @@
 {
   "name": "jata-site",
   "version": "1.0.0",
+  "type": "module",
   "main": "script.js",
   "scripts": {
+    "dev": "npx live-server --port=3000",
+    "build": "echo 'Static site - no build required'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
