@@ -786,6 +786,15 @@ body.team-page #backToTop:hover {
   }
 }
 
+@media (max-width: 700px) {
+  body.team-page .team-container {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+}
+
 /* --- FORUM PAGE ENHANCEMENTS (SCOPED) --- */
 body.forum-page {
   background: linear-gradient(135deg, #F5F0E6 0%, #F3DCDC 100%);
