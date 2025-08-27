@@ -2,10 +2,28 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="description" content="Just a Text Away: By teens, for teens.">
-    <title>Just a Text Away</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Just a Text Away - A teen-led support platform providing peer support, academic assistance, and protection from harassment. Compassion on standby, always just a text away." />
+    <meta name="keywords" content="teen support, peer counseling, academic help, harassment protection, mental health, student assistance" />
+    <meta name="author" content="Just a Text Away Team" />
+    
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://justatextaway.org/" />
+    <meta property="og:title" content="Just a Text Away - Teen Support Platform" />
+    <meta property="og:description" content="Compassion on standby— always just a text away. A teen-led support platform for peer support, academic assistance, and protection." />
+    <meta property="og:image" content="pics/logo.png" />
+    
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://justatextaway.org/" />
+    <meta property="twitter:title" content="Just a Text Away - Teen Support Platform" />
+    <meta property="twitter:description" content="Compassion on standby— always just a text away. A teen-led support platform for peer support, academic assistance, and protection." />
+    <meta property="twitter:image" content="pics/logo.png" />
+    
+    <title>Just a Text Away - Teen Support Platform</title>
     <link rel="icon" type="image/png" href="pics/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -13,15 +31,20 @@
 
     <nav class="navbar">
       <div class="logo">Just a Text Away</div>
-      <div class="hamburger" id="hamburger">☰</div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html"><i class="fas fa-house"></i> Home</a></li>
         <li><a href="team.html"><i class="fas fa-users"></i> Team</a></li>
         <li><a href="updates-and-blogs.html"><i class="fas fa-newspaper"></i> Blogs & Updates</a></li>
         <li><a href="forum.html"><i class="fas fa-comments"></i> Forum</a></li>
+      </ul>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero-section">
       <div class="hero-bg"></div>
       <div class="hero-content">
@@ -34,7 +57,6 @@
       </div>
     </section>
 
-    <!-- What We Do Section -->
     <section id="what-we-do" class="what-we-do section">
       <h2 class="section-title">What We Do</h2>
       <div class="cards-container">
@@ -56,7 +78,6 @@
       </div>
     </section>
 
-    <!--How we work-->
     <section class="how-we-work section">
       <h2 class="section-title">How We Work</h2>
       <div class="steps-container">
@@ -83,7 +104,6 @@
       </div>
     </section>
 
-    <!-- What Makes Us Different -->
     <section class="difference section">
       <h2 class="section-title">What Makes Us Different</h2>
       <div class="difference-cards">
@@ -103,35 +123,33 @@
           <p>Whether it’s 2 PM or 2 AM, we’re just a text away.</p>
         </div>
         <div class="diff-card">
-          <i class="fas fa-shield-alt"></i>
+          <i class="fas fa-shield-halved"></i>
           <h3>Safe & Confidential</h3>
           <p>Your comfort and privacy always come first.</p>
         </div>
       </div>
     </section>
 
-    <!-- Join Us CTA -->
     <section id="join-us" class="cta-join">
       <h2 class="cta-title">Join the Movement</h2>
       <p class="cta-subtext">Whether you want to listen, help, or just be part of something meaningful — we’d love to have you. Every teen voice matters.</p>
       <a href="https://linktr.ee/justatextaway" class="btn cta-btn" target="_blank">Join Us</a>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
       <div class="footer-content">
         <p class="footer-logo">Just a Text Away</p>
         <div class="footer-socials">
-          <a href="https://www.instagram.com/justatextaway_/" target="_blank" aria-label="Instagram">
+          <a href="https://www.instagram.com/justatextaway_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <i class="fab fa-instagram"></i>
           </a>
-          <a href="mailto:justatextaway.org@gmail.com" target="_blank" aria-label="Email">
+          <a href="mailto:justatextaway.org@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email">
             <i class="fas fa-envelope"></i>
           </a>
-          <a href="https://linktr.ee/justatextaway" target="_blank" aria-label="Linktree">
+          <a href="https://linktr.ee/justatextaway" target="_blank" rel="noopener noreferrer" aria-label="Linktree">
             <i class="fas fa-link"></i>
           </a>
-          <a href="https://docs.google.com/document/d/1XZzx-cHR1H7qv8rmpqAziEYGhztdcWEfgGv-ePSFQ4A/edit?usp=sharing" target="_blank" aria-label="terms & conditions">
+          <a href="https://docs.google.com/document/d/1XZzx-cHR1H7qv8rmpqAziEYGhztdcWEfgGv-ePSFQ4A/edit?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="terms & conditions">
             <i class="fas fa-file-alt"></i>
           </a>
         </div>
