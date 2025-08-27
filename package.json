@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "main": "script.js",
-  "engines": { "node": "18.x" },
+  "engines": { "node": "22.x" },
   "scripts": {
     "dev": "npx live-server --port=3000",
     "build": "echo 'Static site - no build required'",
