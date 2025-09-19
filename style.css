@@ -75,13 +75,13 @@ body {
 
 /* Dark mode variables override */
 body.dark {
-  --background-color: #0f1115;
-  --card-background: #161a22;
-  --text-primary: #e6e6e6;
-  --text-secondary: #b3b3b3;
-  --text-light: #9aa4b2;
-  --primary-color: #e6c1c1;
-  --accent-color: #c68a4f;
+  --background-color: #111316; /* near-black with grey tone */
+  --card-background: #1a1d22;  /* deep grey-blue */
+  --text-primary: #E6E7EB;
+  --text-secondary: #B3B6BD;
+  --text-light: #9AA3AE;
+  --primary-color: #E6CFC6;   /* muted primary to match light palette */
+  --accent-color: #C39056;    /* warm accent pairs with beige theme */
 }
 
 /* Typography */
@@ -1062,7 +1062,8 @@ input:checked + .slider:before { transform: translateX(22px); }
   padding: 10px 14px;
   border: 1px solid rgba(174,114,88,0.4);
   border-radius: 10px;
-  background: #fff;
+  background: var(--card-background);
+  color: var(--text-primary);
   min-width: 220px;
 }
 

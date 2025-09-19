@@ -51,10 +51,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const blogSearch = document.getElementById('blogSearch');
   const blogSearchBtn = document.getElementById('blogSearchBtn');
   if (blogSearch && blogSearchBtn) {
-    blogSearchBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      blogSearch.dispatchEvent(new Event('input'));
-    });
+    // Debounced input and click
+    const debounce = (fn, ms = 200) => {
+      let t; return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
+    };
+    const trigger = () => blogSearch.dispatchEvent(new Event('input'));
+    blogSearch.addEventListener('input', debounce(trigger, 200));
+    blogSearchBtn.addEventListener('click', (e) => { e.preventDefault(); trigger(); });
   }
 
   const diffCards = document.querySelectorAll(".diff-card");
@@ -156,21 +159,106 @@ document.addEventListener("DOMContentLoaded", () => {
   const blogsContainer = document.getElementById('blogsContainer');
   // blogSearch defined earlier
   if (filterButtons.length && blogsContainer) {
-    const blogCards = Array.from(blogsContainer.querySelectorAll('.blog-card'));
+    // Render blogs from storage (demo)
+    const readBlogs = () => { try { return JSON.parse(localStorage.getItem('jta_blogs') || '[]'); } catch (_) { return []; } };
+    const writeBlogs = (list) => { try { localStorage.setItem('jta_blogs', JSON.stringify(list)); } catch (_) {} };
+    const ensureSeedBlogs = () => {
+      const list = readBlogs();
+      if (!list.length) {
+        writeBlogs([
+          { title: 'Welcome to JATA', category: 'community', excerpt: 'Our mission and roadmap', date: new Date().toISOString() },
+          { title: 'Coping with Exam Stress', category: 'mental-health', excerpt: 'Practical tips to stay calm', date: new Date().toISOString() }
+        ]);
+      }
+    };
+    ensureSeedBlogs();
+
+    const renderBlogs = () => {
+      blogsContainer.innerHTML = '';
+      const list = readBlogs();
+      if (!list.length) {
+        const p = document.createElement('p'); p.className = 'coming-soon'; p.textContent = 'Blogs coming soon.'; blogsContainer.appendChild(p); return;
+      }
+      list.forEach(item => {
+        const card = document.createElement('article');
+        card.className = 'blog-card';
+        card.setAttribute('data-category', item.category || 'community');
+        card.setAttribute('data-title', item.title || '');
+        card.innerHTML = `
+          <div class="update-header">
+            <span class="update-date">${new Date(item.date || Date.now()).toLocaleDateString()}</span>
+          </div>
+          <div class="blog-meta">
+            <span class="blog-category">${item.category || 'community'}</span>
+          </div>
+          <h3>${item.title || ''}</h3>
+          <p class="blog-excerpt">${item.excerpt || ''}</p>
+        `;
+        blogsContainer.appendChild(card);
+      });
+    };
+    renderBlogs();
+
+    // Admin-only post
+    const adminPanel = document.getElementById('adminPostPanel');
+    const postBlogForm = document.getElementById('postBlogForm');
+    if (adminPanel) adminPanel.style.display = (window.jtaIsAdmin && window.jtaIsAdmin()) ? '' : 'none';
+    if (postBlogForm) {
+      postBlogForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (!(window.jtaIsAdmin && window.jtaIsAdmin())) return;
+        const title = document.getElementById('postTitle').value.trim();
+        const category = document.getElementById('postCategory').value.trim() || 'community';
+        const excerpt = document.getElementById('postExcerpt').value.trim();
+        if (!title) return;
+        const list = readBlogs();
+        list.unshift({ title, category, excerpt, date: new Date().toISOString() });
+        writeBlogs(list);
+        renderBlogs();
+        applyFilters();
+        postBlogForm.reset();
+      });
+    }
+
+    let blogCards = Array.from(blogsContainer.querySelectorAll('.blog-card'));
 
     const applyFilters = () => {
       const activeBtn = document.querySelector('.filter-btn.active');
       const activeFilter = activeBtn ? activeBtn.getAttribute('data-filter') : 'all';
       const term = (blogSearch && blogSearch.value || '').toLowerCase().trim();
+      blogCards = Array.from(blogsContainer.querySelectorAll('.blog-card'));
+
+      // Relevance scoring: title contains > startsWith > category match > excerpt includes
+      const scoreCard = (card) => {
+        if (!term) return 1;
+        const title = (card.getAttribute('data-title') || '').toLowerCase();
+        const category = (card.getAttribute('data-category') || '').toLowerCase();
+        const excerptEl = card.querySelector('.blog-excerpt');
+        const excerpt = excerptEl ? (excerptEl.textContent || '').toLowerCase() : '';
+        let score = 0;
+        if (title.includes(term)) score += 5;
+        if (title.startsWith(term)) score += 3;
+        if (category.includes(term)) score += 2;
+        if (excerpt.includes(term)) score += 1;
+        return score;
+      };
+
+      const matchesCategory = (card) => {
+        const category = card.getAttribute('data-category');
+        return activeFilter === 'all' || category === activeFilter;
+      };
 
       blogCards.forEach(card => {
-        const category = card.getAttribute('data-category');
-        const title = (card.getAttribute('data-title') || '').toLowerCase();
-        const matchesCategory = activeFilter === 'all' || category === activeFilter;
-        const matchesSearch = term === '' || title.includes(term);
-        const show = matchesCategory && matchesSearch;
+        const show = matchesCategory(card) && (term === '' || scoreCard(card) > 0);
         card.style.display = show ? '' : 'none';
       });
+
+      // Sort by score when searching
+      if (term) {
+        const visible = blogCards.filter(c => c.style.display !== 'none');
+        visible.sort((a, b) => scoreCard(b) - scoreCard(a));
+        visible.forEach(c => blogsContainer.appendChild(c));
+      }
     };
 
     filterButtons.forEach(btn => {
@@ -208,6 +296,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const currentUserEmail = document.getElementById('currentUserEmail');
   const logoutBtn = document.getElementById('logoutBtn');
   const tabButtons = document.querySelectorAll('.tab-btn');
+  const toggleLoginPw = document.getElementById('toggleLoginPw');
+  const toggleSignupPw = document.getElementById('toggleSignupPw');
 
   const readUsers = () => {
     try { return JSON.parse(localStorage.getItem('jta_users') || '{}'); } catch (_) { return {}; }
@@ -237,6 +327,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (currentUserEmail) currentUserEmail.textContent = email || '-';
     if (loginForm) loginForm.style.display = isAuthed ? 'none' : '';
     if (signupForm) signupForm.style.display = isAuthed ? 'none' : 'none'; // keep signup behind tab
+    // Admin panel visibility if on blogs page
+    const adminPanel = document.getElementById('adminPostPanel');
+    if (adminPanel) adminPanel.style.display = (window.jtaIsAdmin && window.jtaIsAdmin()) ? '' : 'none';
   };
 
   refreshAuthUI();
@@ -260,6 +353,7 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       const email = (loginForm.email.value || '').trim().toLowerCase();
       const password = (loginForm.password.value || '').trim();
+      if (!email || !password) { if (authStatus) authStatus.textContent = 'Please fill in all fields.'; return; }
       const userMap = readUsers();
       if (userMap[email] && userMap[email].password === password) {
         setCurrentUser(email);
@@ -276,6 +370,8 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       const email = (signupForm.email.value || '').trim().toLowerCase();
       const password = (signupForm.password.value || '').trim();
+      if (!email || !password) { if (authStatus) authStatus.textContent = 'Please fill in all fields.'; return; }
+      if (password.length < 8) { if (authStatus) authStatus.textContent = 'Password must be at least 8 characters.'; return; }
       const userMap = readUsers();
       if (userMap[email]) {
         if (authStatus) authStatus.textContent = 'User already exists';
@@ -293,6 +389,18 @@ document.addEventListener("DOMContentLoaded", () => {
       refreshAuthUI();
     });
   }
+
+  // Toggle password visibility buttons
+  const setupPwToggle = (btn, input) => {
+    if (!btn || !input) return;
+    btn.addEventListener('click', () => {
+      const isPwd = input.type === 'password';
+      input.type = isPwd ? 'text' : 'password';
+      btn.innerHTML = isPwd ? '<i class="fas fa-eye-slash"></i>' : '<i class="fas fa-eye"></i>';
+    });
+  };
+  setupPwToggle(toggleLoginPw, document.getElementById('loginPassword'));
+  setupPwToggle(toggleSignupPw, document.getElementById('signupPassword'));
 
   // Expose small helper for protected areas (if needed later)
   window.jtaIsAdmin = () => {
