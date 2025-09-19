@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings | Just a Text Away</title>
+    <link rel="icon" type="image/png" href="pics/logo.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">Just a Text Away</div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html"><i class="fas fa-house"></i> Home</a></li>
+        <li><a href="team.html"><i class="fas fa-users"></i> Team</a></li>
+        <li><a href="updates-and-blogs.html"><i class="fas fa-newspaper"></i> Blogs & Updates</a></li>
+        <li><a href="forum.html"><i class="fas fa-comments"></i> Forum</a></li>
+        <li><a href="settings.html"><i class="fas fa-gear"></i> Settings</a></li>
+      </ul>
+    </nav>
+
+    <section class="section">
+      <h2 class="section-title">Website Settings</h2>
+
+      <div class="settings-grid">
+        <div class="settings-card">
+          <h3>Appearance</h3>
+          <div class="toggle-row">
+            <label for="themeToggle">Dark Mode</label>
+            <label class="switch">
+              <input type="checkbox" id="themeToggle" />
+              <span class="slider"></span>
+            </label>
+          </div>
+          <small>Dark mode preference is saved on this device.</small>
+        </div>
+
+        <div class="settings-card">
+          <h3>Account</h3>
+          <div id="authArea">
+            <div id="authStatus" class="auth-status"></div>
+            <div class="tabs" role="tablist">
+              <button class="tab-btn active" data-tab="login" role="tab" aria-selected="true">Login</button>
+              <button class="tab-btn" data-tab="signup" role="tab" aria-selected="false">Sign Up</button>
+            </div>
+
+            <form id="loginForm" class="auth-form" autocomplete="on">
+              <div class="form-group">
+                <label for="loginEmail">Email</label>
+                <input id="loginEmail" name="email" type="email" required placeholder="admin@justatextaway.org" />
+              </div>
+              <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input id="loginPassword" name="password" type="password" required placeholder="••••••••" />
+              </div>
+              <button type="submit" class="btn primary-btn">Login</button>
+            </form>
+
+            <form id="signupForm" class="auth-form" style="display:none">
+              <div class="form-group">
+                <label for="signupEmail">Email</label>
+                <input id="signupEmail" name="email" type="email" required placeholder="you@example.com" />
+              </div>
+              <div class="form-group">
+                <label for="signupPassword">Password</label>
+                <input id="signupPassword" name="password" type="password" required placeholder="Create a password" />
+              </div>
+              <button type="submit" class="btn secondary-btn">Sign Up</button>
+            </form>
+
+            <div class="auth-actions" style="display:none" id="authedActions">
+              <p>You are logged in as <strong id="currentUserEmail">-</strong>.</p>
+              <button id="logoutBtn" class="btn">Log out</button>
+            </div>
+          </div>
+          <small>For now, this is client-side only. Use the default admin to begin: admin@justatextaway.org / changeme</small>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p class="footer-logo">Just a Text Away</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/justatextaway_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="mailto:justatextaway.org@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a href="https://linktr.ee/justatextaway" target="_blank" rel="noopener noreferrer" aria-label="Linktree">
+            <i class="fas fa-link"></i>
+          </a>
+        </div>
+        <p class="footer-text">© 2025 Just a Text Away • By teens, for teens.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+  </html>
+
+
