@@ -2,40 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Meet the dedicated team behind Just a Text Away - a teen-led support platform providing peer support, academic assistance, and protection from harassment." />
-    <meta name="keywords" content="team, teen support, peer counseling, leadership, Just a Text Away" />
-    <meta name="author" content="Just a Text Away Team" />
-    
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://justatextaway.org/team" />
-    <meta property="og:title" content="Meet the Core Team | Just a Text Away" />
-    <meta property="og:description" content="Meet the dedicated team behind Just a Text Away - a teen-led support platform." />
-    <meta property="og:image" content="pics/logo.png" />
-    
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://justatextaway.org/team" />
-    <meta property="twitter:title" content="Meet the Core Team | Just a Text Away" />
-    <meta property="twitter:description" content="Meet the dedicated team behind Just a Text Away - a teen-led support platform." />
-    <meta property="twitter:image" content="pics/logo.png" />
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="Meet the core team of Just a Text Away, a youth-led initiative supporting teens.">
     <title>Meet the Core Team | Just a Text Away</title>
     <link rel="icon" type="image/png" href="pics/logo.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <nav class="navbar">
+  <body class="team-page">
+    <nav class="navbar" aria-label="Main navigation">
       <div class="logo">Just a Text Away</div>
-      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-      <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+      <div class="hamburger" id="hamburger">☰</div>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html"><i class="fas fa-house"></i> Home</a></li>
         <li><a href="team.html"><i class="fas fa-users"></i> Team</a></li>
@@ -43,56 +20,89 @@
         <li><a href="forum.html"><i class="fas fa-comments"></i> Forum</a></li>
       </ul>
     </nav>
-    <section class="team section" id="team">
-      <h2 class="section-title">Meet the Core Team</h2>
-      <div class="team-container">
-        <div class="team-member">
-          <img src="pics/suvarna.jpeg" alt="Suvarna Dwivedi - President of Just a Text Away" loading="lazy">
-          <h3>Suvarna Dwivedi</h3>
-          <p>President</p>
-        </div>
-        <div class="team-member">
-          <img src="pics/vihaan.png" alt="Vihaan Rustagi - President of Just a Text Away" loading="lazy">
-          <h3>Vihaan Rustagi</h3>
-          <p>President</p>
-        </div>
-        <div class="team-member">
-          <img src="pics/darshini.jpeg" alt="Darshini Sinha - Editor-in-Chief of Just a Text Away" loading="lazy">
-          <h3>Darshini Sinha</h3>
-          <p>Editor-in-Chief</p>
-        </div>
-        <div class="team-member">
-          <img src="pics/arpita.jpeg" alt="Arpita Keshri - Head of HR & Operations at Just a Text Away" loading="lazy">
-          <h3>Arpita Keshri</h3>
-          <p>HOD of HR & Operations</p>
-        </div>
-        <div class="team-member">
-          <img src="pics/manya.jpeg" alt="Manya Garg - Head of Social Media & Marketing at Just a Text Away" loading="lazy">
-          <h3>Manya Garg</h3>
-          <p>HOD of Social Media & Marketing</p>
-        </div>
-        <div class="team-member">
-          <img src="pics/pavani.jpg" alt="Pavani Bajaj - Head of Content Writing at Just a Text Away" loading="lazy">
-          <h3>Pavani Bajaj</h3>
-          <p>HOD of Content Writing</p>
-        </div>
-        <div class="team-member">
-          <img src="pics/naavya.jpeg" alt="Naavya Kaushik - Head of Graphics at Just a Text Away" loading="lazy">
-          <h3>Naavya Kaushik</h3>
-          <p>HOD of Graphics</p>
-        </div>
-        <div class="team-member">
-          <img src="pics/aryansh.jpg" alt="Aryansh Agarwal - Head of IT at Just a Text Away" loading="lazy">
-          <h3>Aryansh Agarwal</h3>
-          <p>HOD of IT</p>
-        </div>
-        <div class="team-member">
-          <img src="pics/priyal.jpeg" alt="Priyal Verma - Head of Finance at Just a Text Away" loading="lazy">
-          <h3>Priyal Verma</h3>
-          <p>HOD of Finance</p>
-        </div>
+
+    <!-- Hero Banner -->
+    <section class="hero-section team-hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Meet Our Core Team</h1>
+        <p class="hero-subtitle">Compassion on standby— always just a text away.</p>
       </div>
     </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <section class="team section" id="team">
+      <h2 class="section-title">Core Team Members</h2>
+      <div class="team-container">
+        <figure class="team-member animate">
+          <img src="pics/suvarna.jpeg" alt="Suvarna Dwivedi, President" loading="lazy">
+          <figcaption>
+            <h3>Suvarna Dwivedi</h3>
+            <p>President</p>
+          </figcaption>
+        </figure>
+        <figure class="team-member animate">
+          <img src="pics/vihaan.png" alt="Vihaan Rustagi, President" loading="lazy">
+          <figcaption>
+            <h3>Vihaan Rustagi</h3>
+            <p>President</p>
+          </figcaption>
+        </figure>
+        <figure class="team-member animate">
+          <img src="pics/darshini.jpeg" alt="Darshini Sinha, Editor-in-Chief" loading="lazy">
+          <figcaption>
+            <h3>Darshini Sinha</h3>
+            <p>Editor-in-Chief</p>
+          </figcaption>
+        </figure>
+        <figure class="team-member animate">
+          <img src="pics/arpita.jpeg" alt="Arpita Keshri, HOD of HR & Operations" loading="lazy">
+          <figcaption>
+            <h3>Arpita Keshri</h3>
+            <p>HOD of HR & Operations</p>
+          </figcaption>
+        </figure>
+        <figure class="team-member animate">
+          <img src="pics/manya.jpeg" alt="Manya Garg, HOD of Social Media & Marketing" loading="lazy">
+          <figcaption>
+            <h3>Manya Garg</h3>
+            <p>HOD of Social Media & Marketing</p>
+          </figcaption>
+        </figure>
+        <figure class="team-member animate">
+          <img src="pics/pavani.jpg" alt="Pavani Bajaj, HOD of Content Writing" loading="lazy">
+          <figcaption>
+            <h3>Pavani Bajaj</h3>
+            <p>HOD of Content Writing</p>
+          </figcaption>
+        </figure>
+        <figure class="team-member animate">
+          <img src="pics/naavya.jpeg" alt="Naavya Kaushik, HOD of Graphics" loading="lazy">
+          <figcaption>
+            <h3>Naavya Kaushik</h3>
+            <p>HOD of Graphics</p>
+          </figcaption>
+        </figure>
+        <figure class="team-member animate">
+          <img src="pics/aryansh.jpg" alt="Aryansh Agarwal, HOD of IT" loading="lazy">
+          <figcaption>
+            <h3>Aryansh Agarwal</h3>
+            <p>HOD of IT</p>
+          </figcaption>
+        </figure>
+        <figure class="team-member animate">
+          <img src="pics/priyal.jpeg" alt="Priyal Verma, HOD of Finance" loading="lazy">
+          <figcaption>
+            <h3>Priyal Verma</h3>
+            <p>HOD of Finance</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+    <button id="backToTop" title="Back to top"><i class="fas fa-arrow-up"></i></button>
+
     <footer class="footer">
       <div class="footer-content">
         <p class="footer-logo">Just a Text Away</p>
@@ -113,6 +123,16 @@
         <p class="footer-text">© 2025 Just a Text Away • By teens, for teens.</p>
       </div>
     </footer>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
+    <script>
+      // Back to top button functionality
+      const backToTop = document.getElementById('backToTop');
+      window.addEventListener('scroll', () => {
+        backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+      });
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    </script>
   </body>
 </html>
