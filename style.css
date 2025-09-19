@@ -344,9 +344,7 @@ button:disabled {
     max-width: 300px;
     height: 100vh;
     background-color: var(--card-background);
-    flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
     padding: 80px var(--spacing-lg) var(--spacing-lg);
     box-shadow: var(--shadow-heavy);
     transition: right var(--transition-normal);
@@ -365,15 +363,25 @@ button:disabled {
   .hamburger[aria-expanded="true"] .bar:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
   
   .nav-links li {
-    margin: var(--spacing-sm) 0;
+    margin: var(--spacing-xs) 0;
     width: 100%;
+    list-style: none;
   }
   
   .nav-links a {
     width: 100%;
-    padding: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-sm);
     border-radius: 8px;
     font-size: var(--font-size-large);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    transition: all var(--transition-fast);
+  }
+  
+  .nav-links a:hover {
+    background-color: rgba(174, 114, 88, 0.1);
+    transform: translateX(5px);
   }
   
   .navbar {
@@ -482,6 +490,15 @@ button:disabled {
   align-items: center;
   gap: var(--spacing-lg);
   list-style: none;
+}
+
+/* Mobile navigation - override base styles */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0 !important;
+  }
 }
 
 .nav-links li {
