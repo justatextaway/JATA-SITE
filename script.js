@@ -3,13 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.getElementById("hamburger");
   const navOverlay = document.getElementById("navOverlay");
   
-  // THEME: apply saved theme early
-  try {
-    const savedTheme = localStorage.getItem('jta_theme');
-    if (savedTheme === 'dark') {
-      document.body.classList.add('dark');
-    }
-  } catch (_) {}
+  // Dark mode removed
 
   if (hamburger && navLinks) {
     hamburger.addEventListener("click", () => {
@@ -275,19 +269,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // SETTINGS: Theme toggle and auth forms
-  const themeToggle = document.getElementById('themeToggle');
-  if (themeToggle) {
-    const isDark = document.body.classList.contains('dark');
-    themeToggle.checked = isDark;
-    themeToggle.addEventListener('change', () => {
-      document.body.classList.toggle('dark', themeToggle.checked);
-      try { localStorage.setItem('jta_theme', themeToggle.checked ? 'dark' : 'light'); } catch (_) {}
-    });
-  }
+  // theme toggle removed
 
   // Simple client-side auth
-  const DEFAULT_ADMIN_EMAIL = 'admin@justatextaway.org';
-  const DEFAULT_ADMIN_PASSWORD = 'changeme';
+  const DEFAULT_ADMIN_EMAIL = 'admin';
+  const DEFAULT_ADMIN_PASSWORD = 'admin123';
 
   const authStatus = document.getElementById('authStatus');
   const loginForm = document.getElementById('loginForm');
@@ -379,7 +365,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       userMap[email] = { password, role: 'member' };
       writeUsers(userMap);
-      if (authStatus) authStatus.textContent = 'Signup successful. You can login now.';
+    if (authStatus) authStatus.textContent = 'Signup successful. You can login now.';
     });
   }
 
@@ -408,6 +394,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const userMap = readUsers();
     return !!(email && userMap[email] && userMap[email].role === 'admin');
   };
+
+  // Ensure UI reflects admin helper availability
+  if (typeof refreshAuthUI === 'function') {
+    refreshAuthUI();
+  }
   const form = document.getElementById('feedbackForm');
   const status = document.getElementById('feedbackStatus');
   

@@ -74,15 +74,7 @@ body {
 }
 
 /* Dark mode variables override */
-body.dark {
-  --background-color: #111316; /* near-black with grey tone */
-  --card-background: #1a1d22;  /* deep grey-blue */
-  --text-primary: #E6E7EB;
-  --text-secondary: #B3B6BD;
-  --text-light: #9AA3AE;
-  --primary-color: #E6CFC6;   /* muted primary to match light palette */
-  --accent-color: #C39056;    /* warm accent pairs with beige theme */
-}
+/* dark mode removed */
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
@@ -1062,8 +1054,7 @@ input:checked + .slider:before { transform: translateX(22px); }
   padding: 10px 14px;
   border: 1px solid rgba(174,114,88,0.4);
   border-radius: 10px;
-  background: var(--card-background);
-  color: var(--text-primary);
+  background: #fff;
   min-width: 220px;
 }
 
