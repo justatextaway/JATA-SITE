@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.getElementById("navLinks");
   const hamburger = document.getElementById("hamburger");
   const navOverlay = document.getElementById("navOverlay");
+  const navCloseBtn = document.getElementById("navCloseBtn");
   
   // Dark mode removed
 
@@ -13,6 +14,16 @@ document.addEventListener("DOMContentLoaded", () => {
       if (navOverlay) navOverlay.classList.toggle("show");
       document.body.classList.toggle('menu-open', !isExpanded);
     });
+    
+    // Close button functionality
+    if (navCloseBtn) {
+      navCloseBtn.addEventListener("click", () => {
+        navLinks.classList.remove("show");
+        hamburger.setAttribute("aria-expanded", "false");
+        if (navOverlay) navOverlay.classList.remove("show");
+        document.body.classList.remove('menu-open');
+      });
+    }
 
     document.querySelectorAll(".nav-links a").forEach(link => {
       link.addEventListener("click", () => {
